@@ -197,7 +197,7 @@ if(IS_WEB)
     endif()
 
     # NOTE: FULL_ES3 requires Raylib to be compiled for Web with OpenGL ES3 (see README requirements)
-    # NOTE: Use AudioWorklet requires atomics or bulk-memory features
+    # NOTE: Use AudioWorklet requires atomics or bulk-memory features - https://emscripten.org/docs/api_reference/wasm_audio_worklets.html
     # -sENVIRONMENT='web','worker' 
     # -sAUDIO_WORKLET=1 
     # -sWASM_WORKERS=1
