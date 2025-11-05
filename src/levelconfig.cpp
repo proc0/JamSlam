@@ -3,7 +3,7 @@
 
 #include "levelconfig.hpp"
 
-Config::Config(const std::string& filepath) {
+LevelConfig::LevelConfig(const std::string& filepath) {
     std::ifstream file(filepath);
     assert(file && file.is_open());
 
@@ -105,6 +105,6 @@ Config::Config(const std::string& filepath) {
     file.close();
 }
 
-const ConfigData& Config::GetData() const {
+const ConfigData& LevelConfig::GetData() const {
     return data;
 }

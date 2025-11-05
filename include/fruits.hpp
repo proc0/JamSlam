@@ -7,12 +7,12 @@
 #include "levelconfig.hpp"
 #include "lib.hpp"
 
-#define URI_SOUND_SPIKE_HIT "resources/spike.wav"
-#define URI_SOUND_EGG_CATCH "resources/eggpop.wav"
+#define URI_SOUND_SPIKE_HIT "assets/spike.wav"
+#define URI_SOUND_EGG_CATCH "assets/eggpop.wav"
 #define LENGTH_SOUND_SPLATS 5
-#define URI_SOUND_SPLAT(buf, idx) sprintf(buf, "resources/splat%d.wav", (idx))
+#define URI_SOUND_SPLAT(buf, idx) sprintf(buf, "assets/splat%d.wav", (idx))
 #define LENGTH_SOUND_THUMPS 5
-#define URI_SOUND_THUMP(buf, idx) sprintf(buf, "resources/thump%d.wav", (idx))
+#define URI_SOUND_THUMP(buf, idx) sprintf(buf, "assets/thump%d.wav", (idx))
 
 #define GRAVITY 982.0f
 
@@ -23,23 +23,23 @@
 
 #ifndef FRUITS
 #define FRUITS \
-    FRUIT("LEMON", LEMON, "resources/fruits/lemon.png", 0.0f, 0.0f, YELLOW, 0.3f) \
-    FRUIT("CHERRY", CHERRY, "resources/fruits/red-cherry.png", -4.0f, 9.0f, RED, 0.3f) \
-    FRUIT("BLACKBERRY", BLACKBERRY, "resources/fruits/black-berry-light.png", 0.0f, 9.0f, PURPLE, 0.3f) \
-    FRUIT("RASPBERRY", RASPBERRY, "resources/fruits/raspberry.png", 0.0f, 9.0f, RED, 0.3f) \
-    FRUIT("STRAWBERRY", STRAWBERRY, "resources/fruits/strawberry.png", -8.0f, 12.0f, RED, 0.4f) \
-    FRUIT("LIMA", LIMA, "resources/fruits/lime.png", 0.0f, 0.0f, LIME, 0.5f) \
-    FRUIT("PEAR", PEAR, "resources/fruits/pear.png", 0.0f, 25.0f, GREEN, 0.6f) \
-    FRUIT("GRAPE", GRAPE, "resources/fruits/red-grape.png", 3.0f, -8.0f, GREEN, 0.7f) \
-    FRUIT("PLUM", PLUM, "resources/fruits/plum.png", 4.0f, 10.0f, PURPLE, 0.7f) \
-    FRUIT("PEACH", PEACH, "resources/fruits/peach.png", 0.0f, 0.0f, BEIGE, 0.7f) \
-    FRUIT("APPLE", APPLE, "resources/fruits/red-apple.png", 0.0f, 15.0f, RED, 0.8f) \
-    FRUIT("NARANJA", NARANJA, "resources/fruits/orange.png", 0.0f, 5.0f, ORANGE, 0.8f) \
-    FRUIT("BANANA", BANANA, "resources/fruits/banana.png", 23.0f, 28.0f, YELLOW, 0.9f) \
-    FRUIT("WATERMELON", WATERMELON, "resources/fruits/watermelon.png", 0.0f, 0.0f, RED, 1.0f) \
-    FRUIT("COCONUT", COCONUT, "resources/fruits/coconut.png", -20.0f, 10.0f, WHITE, 1.0f) \
-    FRUIT("EGG", EGG, "resources/fruits/egg.png", 0.0f, 10.0f, GREEN, 1.0f) \
-    FRUIT("SPIKE", SPIKE, "resources/fruits/spike.png", 0.0f, 0.0f, BLACK, 1.0f) 
+    FRUIT("LEMON", LEMON, "assets/fruits/lemon.png", 0.0f, 0.0f, YELLOW, 0.3f) \
+    FRUIT("CHERRY", CHERRY, "assets/fruits/red-cherry.png", -4.0f, 9.0f, RED, 0.3f) \
+    FRUIT("BLACKBERRY", BLACKBERRY, "assets/fruits/black-berry-light.png", 0.0f, 9.0f, PURPLE, 0.3f) \
+    FRUIT("RASPBERRY", RASPBERRY, "assets/fruits/raspberry.png", 0.0f, 9.0f, RED, 0.3f) \
+    FRUIT("STRAWBERRY", STRAWBERRY, "assets/fruits/strawberry.png", -8.0f, 12.0f, RED, 0.4f) \
+    FRUIT("LIMA", LIMA, "assets/fruits/lime.png", 0.0f, 0.0f, LIME, 0.5f) \
+    FRUIT("PEAR", PEAR, "assets/fruits/pear.png", 0.0f, 25.0f, GREEN, 0.6f) \
+    FRUIT("GRAPE", GRAPE, "assets/fruits/red-grape.png", 3.0f, -8.0f, GREEN, 0.7f) \
+    FRUIT("PLUM", PLUM, "assets/fruits/plum.png", 4.0f, 10.0f, PURPLE, 0.7f) \
+    FRUIT("PEACH", PEACH, "assets/fruits/peach.png", 0.0f, 0.0f, BEIGE, 0.7f) \
+    FRUIT("APPLE", APPLE, "assets/fruits/red-apple.png", 0.0f, 15.0f, RED, 0.8f) \
+    FRUIT("NARANJA", NARANJA, "assets/fruits/orange.png", 0.0f, 5.0f, ORANGE, 0.8f) \
+    FRUIT("BANANA", BANANA, "assets/fruits/banana.png", 23.0f, 28.0f, YELLOW, 0.9f) \
+    FRUIT("WATERMELON", WATERMELON, "assets/fruits/watermelon.png", 0.0f, 0.0f, RED, 1.0f) \
+    FRUIT("COCONUT", COCONUT, "assets/fruits/coconut.png", -20.0f, 10.0f, WHITE, 1.0f) \
+    FRUIT("EGG", EGG, "assets/fruits/egg.png", 0.0f, 10.0f, GREEN, 1.0f) \
+    FRUIT("SPIKE", SPIKE, "assets/fruits/spike.png", 0.0f, 0.0f, BLACK, 1.0f) 
 
 typedef enum class FruitType {
 #define FRUIT(NAME, ENUM, URI, OFFSETX, OFFSETY, COLOR, RATING) ENUM,
