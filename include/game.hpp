@@ -14,7 +14,7 @@
 #define SCREEN_HEIGHT 720
 // asset files
 // #define URI_SOUND_SPLAT "splat1.wav"
-#define GAME_CONFIG_URI "jamslam.ini"
+#define GAME_CONFIG_URI "assets/jamslam.ini"
 
 class Game {
     JamSlam jamslam;

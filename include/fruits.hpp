@@ -69,7 +69,23 @@ static inline const FruitType static_StringToFruit(const std::string& fruitStrin
 #undef FRUIT
     };
     
-    return fruitMap.at(fruitString);
+    //Use .find() to safely look up the value
+    auto it = fruitMap.find(fruitString);
+
+    if (it != fruitMap.end()) {
+        // Key found, return the associated FruitType
+        return it->second;
+    } else {
+        // Key NOT found. Handle this gracefully.
+        // You might need an "Unknown" or "Invalid" entry in your enum:
+        // return FruitType::InvalidOrUnknown; 
+        
+        // Or perhaps log an error if this state should be impossible
+        // std::cerr << "Error: Unknown fruit string: " << fruitString << std::endl;
+        
+        // Return a safe default value
+        return FruitType::LEMON; 
+    }
 }
 
 static inline const char* static_FruitToString(const FruitType fruitType) {

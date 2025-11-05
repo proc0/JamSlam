@@ -18,7 +18,7 @@ set(FILE_CONFIG "config" CACHE STRING "Optional config file name in include fold
 # Raylib settings - defaults to local lib if exists
 option(USE_RAYLIB_FETCH "Fetch and build from source" ON)
 # TODO: option(USE_RAYLIB_CUSTOM "Fetch and custom build" OFF)
-option(USE_RAYLIB_LOCAL "Use a local static build" ON)
+option(USE_RAYLIB_LOCAL "Use a local static build" OFF)
 
 #                      LOCAL LIB PATHS
 #---------------------------------------------------------------
@@ -196,11 +196,14 @@ if(IS_WEB)
         set(PATH_WEB_SHELL "${CMAKE_CURRENT_SOURCE_DIR}/build-web/_deps/raylib-src/src/${FILE_WEB_SHELL}")
     endif()
 
-    # FULL_ES3 requires Raylib to be compiled for Web with OpenGL ES3 (see README requirements)
+    # NOTE: FULL_ES3 requires Raylib to be compiled for Web with OpenGL ES3 (see README requirements)
+    # NOTE: Use AudioWorklet requires atomics or bulk-memory features
+    # -sENVIRONMENT='web','worker' 
+    # -sAUDIO_WORKLET=1 
+    # -sWASM_WORKERS=1
     target_link_options(${PROJECT_NAME} PRIVATE 
         -sFULL_ES3 
         -sUSE_GLFW=3 
-        -sASYNCIFY
         -sWASM=1
         -sEXPORT_ES6=1
         -sGL_ENABLE_GET_PROC_ADDRESS=1

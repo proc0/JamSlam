@@ -126,13 +126,13 @@ void JamSlam::Update() {
     if(IsKeyPressed(KEY_P)){
         if(state == PAUSE) {
             state = PLAY;
-            DisableCursor();
+            HideCursor();
             return;
         }
         
         if(state == PLAY || state == READY) {
             state = PAUSE;
-            EnableCursor();
+            ShowCursor();
             return;
         }
     }
