@@ -31,7 +31,6 @@ void Game::Update(){
 
     if(IsKeyPressed(KEY_SPACE)){
         count++;
-        PlaySound(splat);
     }
     
     if (IsKeyPressed(KEY_H)){
@@ -66,15 +65,13 @@ void Game::Render() const {
 }
 
 void Game::Load(){
-    std::string pathAssets = DIR_ASSETS;
-    const char* pathSoundSplat = pathAssets.append("/").append(URI_SOUND_SPLAT).c_str();
+    // std::string pathAssets = DIR_ASSETS;
+    // const char* pathSoundSplat = pathAssets.append("/").append(URI_SOUND_SPLAT).c_str();
 
-    splat = LoadSound(pathSoundSplat);
     count = 0;
 }
 
 void Game::Unload(){
-    UnloadSound(splat);
 }
 
 void Game::Loop(void *self) {
