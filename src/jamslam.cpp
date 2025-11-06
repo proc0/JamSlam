@@ -121,9 +121,7 @@ void JamSlam::Update() {
         UpdateMusicStream(musicIntro);
     }
 
-    // using P key for pause because browsers set ESC key to unlock the mouse (when DisableCursor is called)
-    // if Hide/ShowCursor is used instead, ESC can be used, but that is blocked (see below)
-    if(IsKeyPressed(KEY_P)){
+    if(IsKeyPressed(KEY_ESCAPE)){
         if(state == PAUSE) {
             state = PLAY;
             HideCursor();
@@ -137,8 +135,6 @@ void JamSlam::Update() {
         }
     }
 
-    // using Enable/DisableCursor instead of Hide/ShowCursor because Raylib and/or Emsripten is locking mouse with Hide/Show
-    // working around this by using GetMouseDelta when mouse locked (disabled). Raylib ticket: https://github.com/raysan5/raylib/issues/4940
     if(IsCursorHidden()){
         mousePosition += GetMouseDelta();
     } else {
@@ -171,7 +167,7 @@ void JamSlam::Update() {
             state = OVER;
             timeEnd = GetTime();
             display.UpdateOnce(score, timeEnd, timeStart);
-            EnableCursor();
+            ShowCursor();
             return;
         }
         // Progress
@@ -183,7 +179,7 @@ void JamSlam::Update() {
                 level.Reset();
                 fruits.SetLevel(0);
                 display.UpdateOnce(score, timeEnd, timeStart);
-                EnableCursor();
+                ShowCursor();
                 return;                
             } else {
                 level.NextLevel();
@@ -231,7 +227,7 @@ void JamSlam::Update() {
             level.Reset();
             bucket.Reset();
             bucket.Update(mousePosition, {false, false, false, WHITE});
-            DisableCursor();
+            HideCursor();
             timeStart = GetTime();
             timeReady = 0.0f;
             timeCount = 0.0f;
@@ -255,6 +251,12 @@ void JamSlam::Update() {
         }
     }
 
+    if(state == BEGIN) {
+        if(IsMouseButtonDown(MOUSE_BUTTON_LEFT) || IsMouseButtonDown(MOUSE_BUTTON_RIGHT) || GetKeyPressed() != 0){
+            state = START;
+        }
+    }
+    
     if(state == START){
         // intro fruits
         fruits.Update({ 0, 0, 0, 0 }, std::vector<Vector2>());
@@ -275,7 +277,7 @@ void JamSlam::Render() const {
     stage.Render();
 
     // PLAY || PAUSE || OVER || READY || WIN
-    if(state != START && state != END) {
+    if(state != BEGIN && state != START && state != END) {
         fruits.Render();
         bucket.Render();
         display.Render();
@@ -289,6 +291,10 @@ void JamSlam::Render() const {
     if(state == READY) {
         display.RenderReady();
         return;
+    }
+
+    if(state == BEGIN) {
+        display.RenderBeginScreen();
     }
 
     if(state == START){

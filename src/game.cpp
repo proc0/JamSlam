@@ -27,7 +27,7 @@ void Game::Resize() {
 
 void Game::Update(){
 
-    Resize();
+   // Resize();
 
    jamslam.Update();
     
@@ -64,7 +64,7 @@ void Game::Run() {
         // no target FPS for performance
         emscripten_set_main_loop_arg(Loop, this, 0, 1);
     #else
-        SetTargetFPS(60);
+        SetTargetFPS(120);
         while (!WindowShouldClose() && jamslam.isRunning()) {
             Loop(this);
         }

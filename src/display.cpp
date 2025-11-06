@@ -225,6 +225,15 @@ void Display::UpdateMenu(Vector2 mousePosition) {
     quitButtonLastState = quitButtonState;
 }
 
+void Display::RenderBeginScreen() const {
+    for(const auto& textParams : startMenuTextParams) {
+        const TextParams& entry = textParams.second;
+        if(textParams.first == "startMenuTitle"){
+            DrawTextEx(mainFont, entry.text, { (float)entry.x, (float)entry.y }, entry.fontSize, 1.0f, entry.color);
+        }
+    }
+    DrawTextEx(subFont, "Press any key", { 520, 420 }, FONTSIZE_MENUTEXT, 1.0f, BLACK);
+}
 
 void Display::RenderStartMenu(void) const {
     const TextureParams panel = panelTextureParams.at("startMenuPanel");

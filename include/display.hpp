@@ -107,6 +107,7 @@ class Display {
         void Render() const;
         void RenderReady() const;
         void UpdateOnce(int score, float timeEnd, float timeStart);
+        void RenderBeginScreen() const;
         void RenderStartMenu() const;
         void RenderOverMenu() const;
         void RenderWinMenu() const;

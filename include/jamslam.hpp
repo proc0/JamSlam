@@ -20,6 +20,7 @@ class JamSlam {
     Vector2 mousePosition;
     Vector2 debugCoordinates;
     enum State {
+        BEGIN,
         START,
         PLAY,
         READY,
@@ -28,7 +29,7 @@ class JamSlam {
         WIN,
         END
     };
-    State state = START;
+    State state = BEGIN;
     Music musicLevel;
     Music musicIntro;
     Sound soundCheers;
